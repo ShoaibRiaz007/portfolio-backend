@@ -1,0 +1,35 @@
+{
+  "name": "portfolio-backend",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "db:push": "prisma db push",
+    "start": "bun src/index.ts",
+    "db:generate": "prisma generate",
+    "dev": "bun --watch src/index.ts",
+    "postinstall": "bun run db:generate",
+    "type-check": "bun run tsc --noEmit",
+    "db:migrate": "prisma migrate deploy",
+    "db:migrate:dev": "prisma migrate dev",
+    "lint": "biome check --write --unsafe --max-diagnostics 500 ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.6",
+    "@types/bun": "latest",
+    "prisma": "^7.0.0",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@asteasolutions/zod-to-openapi": "7.0.0",
+    "@hono/zod-validator": "^0.3.0",
+    "@prisma/adapter-pg": "^7.0.0",
+    "@prisma/client": "^7.0.0",
+    "@scalar/hono-api-reference": "^0.9.22",
+    "hono": "^4.10.1",
+    "pg": "^8.13.0",
+    "pino": "^10.1.0",
+    "pino-pretty": "^13.1.2",
+    "dotenv": "^16.4.5",
+    "zod": "3.25.76"
+  }
+}
