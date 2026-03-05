@@ -2,6 +2,9 @@ import { type ApiReferenceConfiguration, Scalar } from "@scalar/hono-api-referen
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
+import { educationRoute } from "./routes/education";
+import { experiencesRoute } from "./routes/experiences";
+import { profileRoute } from "./routes/profile";
 import { projectsRoute } from "./routes/projects";
 import { testimonialsRoute } from "./routes/testimonials";
 import { logger as pinoLogger } from "./utils/logger";
@@ -22,6 +25,9 @@ app.use(
 // Register all routes
 app.route("/api/projects", projectsRoute);
 app.route("/api/testimonials", testimonialsRoute);
+app.route("/api/profile", profileRoute);
+app.route("/api/experiences", experiencesRoute);
+app.route("/api/education", educationRoute);
 
 // Scalar Docs
 app.get(

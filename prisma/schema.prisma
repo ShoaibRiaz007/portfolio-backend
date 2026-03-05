@@ -47,6 +47,9 @@ model projects {
   galleryImages    String[]
   demoUrl          String?
   repositoryUrl    String?
+  platform         String?
+  videoUrl         String?
+  webglUrl         String?
   seoTitle         String?
   seoDescription   String?
   keywords         String[]
@@ -63,4 +66,44 @@ model testimonials {
   content     String
   designation String
   client_name String
+}
+
+model profile {
+  id        Int      @id @default(1)
+  name      String
+  title     String
+  summary   String   @db.Text
+  shortBio  String
+  picture   String?
+  phone     String?
+  email     String?
+  linkedin  String?
+  location  String?
+  topSkills String[]
+  updatedAt DateTime @updatedAt
+}
+
+model experiences {
+  id          Int      @id @default(autoincrement())
+  company     String
+  role        String
+  startDate   String
+  endDate     String?
+  location    String
+  description String   @db.Text
+  bullets     String[]
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model education {
+  id             Int      @id @default(autoincrement())
+  institution    String
+  degree         String
+  field          String?
+  graduationDate String?
+  order          Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
